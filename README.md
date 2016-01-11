@@ -38,4 +38,12 @@ Clone [bushido-java-service](https://github.com/bushidowallet/bushido-java-servi
 ```
 git clone https://github.com/bushidowallet/bushido-java-service.git
 ```
-
+Once you have the code, locate *application.dev.properties* file in */bushido-java-service/bushido-wallet-service/src/main/resources* and fill out the following entries:
+```
+app.rabbit.host=192.168.99.100 //your Docker Machine's IP
+app.rabbit.username=bushido
+app.rabbit.password=bushido
+app.rabbit.port=5672
+app.mongo.host=172.17.0.2 //MongoDB container's IP
+app.mongo.port=27017
+```
