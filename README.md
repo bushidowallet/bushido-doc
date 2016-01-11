@@ -47,3 +47,7 @@ app.rabbit.port=5672
 app.mongo.host=172.17.0.2 //MongoDB container's IP
 app.mongo.port=27017
 ```
+You are ready to build it with Maven.
+```
+mvn install
+```
