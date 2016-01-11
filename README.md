@@ -1,4 +1,4 @@
-# Installing Bushido dev environment with [Docker](http://www.docker.com)
+# Installing Bushido development environment with [Docker](http://www.docker.com)
 
 # RabbitMQ
 
