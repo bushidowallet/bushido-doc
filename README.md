@@ -10,6 +10,7 @@ docker build -t bushido-rabbitmq .
 ```
 Run the container off this image.
 ```
-docker run -t -i -e RABBITMQ_DEFAULT_USER=bushido -e RABBITMQ_DEFAULT_PASS=bushido -p 15674:15674 -p 5672:5672 bushido-rabbitmq
+docker run -t -i -e RABBITMQ_DEFAULT_USER=bushido -e RABBITMQ_DEFAULT_PASS=bushido
+-p 15674:15674 -p 5672:5672 bushido-rabbitmq
 ```
 Note we open up 2 ports: 15674 for rabbitmq_web_stomp plugin and 5672 for AMQP.
