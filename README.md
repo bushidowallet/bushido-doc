@@ -29,3 +29,13 @@ docker run -it --link bushido-mongo:mongo --rm mongo
 sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
 ```
 Make a note of the IP address assigned, typically its 172.17.0.x 
+
+# bushido-java-service
+
+Bushido Java Service provides J2EE applications required to run Bushido - including the APIs.
+
+Clone [bushido-java-service](https://github.com/bushidowallet/bushido-java-service). If you are on Windows, clone to a folder in your user's Documents (eg. C:\Users\JohnDoe\Documents\bushido). It is required by Docker on this OS.
+```
+git clone https://github.com/bushidowallet/bushido-java-service.git
+```
+
