@@ -53,3 +53,12 @@ docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS
 -v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/
 target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
 ```
+# Bushido Web Application 
+
+Bushido Web Application is a HTML/JS front-end with wallet, registration, widgets and other modules.
+
+Clone [bushido-web-app](https://github.com/bushidowallet/bushido-web-app) to bushido folder, follow the instructions from the code repo's readme file.
+
+# Nginx
+
+Nginx is a HTTP and Reverse Proxy server used on Bushido to serve Bushido Web Application, and reverse proxy API calls and socket connections upstream to Tomcat and RabbitMQ. It acts as an SSL termination point.
