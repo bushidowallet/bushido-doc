@@ -25,6 +25,7 @@ docker run --name bushido-mongo -d mongo
 ```
 In a separate console window, launch a MongoDB client to test if its working fine and find out the IP address of MongoDB container.
 ```
-docker run -it --link bushido-mongo:mongo --rm mongo sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
+docker run -it --link bushido-mongo:mongo --rm mongo 
+sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
 ```
 Make a note of the IP address assigned, typically its 172.17.0.x 
