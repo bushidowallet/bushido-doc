@@ -19,11 +19,12 @@ Note we open up 2 ports: 15674 for rabbitmq_web_stomp plugin and 5672 for AMQP.
 
 MongoDB is a document-oriented, noSQL database used on Bushido as a data and metadata persistance layer.
 
-Build MongoDB image from this repository [mongo](https://github.com/bushidowallet/mongo). Checkout the code, and once in mongo folder:
+Run the MongoDB container.
 ```
-docker build -t bushido-mongo .
+docker run --name bushido-mongo -d mongo
 ```
-Run the MongoDB container off this image.
+In a separate console window, launch a MongoDB client to test if its working fine and find out the IP address of MongoDB container.
 ```
-docker run -t -i -p 27017:27017 bushido-mongo
+docker run -it --link bushido-mongo:mongo --rm mongo sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
 ```
+Make a note of the IP address assigned, typically its 172.17.0.x 
