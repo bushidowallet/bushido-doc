@@ -50,5 +50,6 @@ mvn install
 Once its built, run it with Docker:
 ```
 docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS="-Xms512M" -p 8080:8080 
--v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
+-v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/
+target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
 ```
