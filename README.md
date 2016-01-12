@@ -77,3 +77,12 @@ Sign wildcard certificate with Root CA
 ```
 x509 -req -days 730 -in bushido.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out bushido.crt
 ```
+Clone [docker-nginx](https://github.com/bushidowallet/docker-nginx) to bushido folder.
+```
+git clone https://github.com/bushidowallet/docker-nginx.git
+```
+Build the image and run the container:
+```
+docker build -t bushido-nginx .
+docker run --name bushido-nginx -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/bushido.conf:/etc/nginx/conf.d/bushido.conf:ro -v //c/Users/JohnDoe/Documents/bushido/bushido-web-app/dist:/usr/share/nginx/html:ro -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/cert/bundle.crt:/etc/nginx/bundle.crt:ro -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/cert/star_bushidowallet_com.key:/etc/nginx/star_bushidowallet_com.key:ro -d -p 80:80 -p 443:443 bushido-nginx
+```
