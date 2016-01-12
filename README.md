@@ -63,8 +63,7 @@ Clone [docker-nginx](https://github.com/bushidowallet/docker-nginx) to bushido f
 ```
 git clone https://github.com/bushidowallet/docker-nginx.git
 ```
-This repo comes with /conf folder, where you can find Nginx configuaration files and some self-signed SSL certificates.
-You can generate self-signed certificates yourself as well.
+This repo comes with /conf folder, where you can find Nginx configuaration files and some self-signed SSL certificates. Review the [bushido.conf](https://github.com/bushidowallet/docker-nginx/blob/bushido/conf/bushido.conf) file as you will need to change a few IP addresses there. For dev purpose you can use included self-signed SSL certificate, however you can also generate self-signed certificates if you prefer to.
 
 If you are a Linux user, install [OpenSSL](https://www.openssl.org/) with apt-get. If you prefer Windows, get [Win32 OpenSSL v1.0.2e](http://slproweb.com/download/Win32OpenSSL-1_0_2e.exe). 
 
