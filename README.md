@@ -57,7 +57,16 @@ Clone [bushido-web-app](https://github.com/bushidowallet/bushido-web-app) to bus
 
 # Nginx
 
-Nginx is a HTTP and Reverse Proxy server used on Bushido to serve Bushido Web Application, and reverse proxy API calls and socket connections upstream to Tomcat and RabbitMQ. Nginx acts as an SSL termination point, so in order to configure it locally, you need to generate a self-signed wildcard SSL certificate first. If you are a Linux user, install [OpenSSL](https://www.openssl.org/) with apt-get. If you prefer Windows, get [Win32 OpenSSL v1.0.2e](http://slproweb.com/download/Win32OpenSSL-1_0_2e.exe). 
+Nginx is a HTTP and Reverse Proxy server used on Bushido to serve Bushido Web Application, and reverse proxy API calls and socket connections upstream to Tomcat and RabbitMQ.
+
+Clone [docker-nginx](https://github.com/bushidowallet/docker-nginx) to bushido folder.
+```
+git clone https://github.com/bushidowallet/docker-nginx.git
+```
+This repo comes with /conf folder, where you can find Nginx configuaration files and some self-signed SSL certificates.
+You can generate self-signed certificates yourself as well.
+
+If you are a Linux user, install [OpenSSL](https://www.openssl.org/) with apt-get. If you prefer Windows, get [Win32 OpenSSL v1.0.2e](http://slproweb.com/download/Win32OpenSSL-1_0_2e.exe). 
 
 Generate Root CA certificate. Use common name: Bushido SSL
 ```
@@ -66,17 +75,15 @@ req -new -x509 -days 1826 -key ca.key -out ca.crt
 ```
 Generate Bushido Wildcard unsigned certificate. Use common name: *.bushidowallet.com
 ```
-genrsa -out bushido.key 4096
-req -new -key bushido.key -out bushido.csr
+genrsa -out star_bushidowallet_com.key 4096
+req -new -key star_bushidowallet_com.key -out bushido.csr
 ```
 Sign wildcard certificate with Root CA
 ```
 x509 -req -days 730 -in bushido.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out bushido.crt
 ```
-Clone [docker-nginx](https://github.com/bushidowallet/docker-nginx) to bushido folder.
-```
-git clone https://github.com/bushidowallet/docker-nginx.git
-```
+Copy bushido.crt content to bundle.crt and save it.
+
 Build the image and run the container:
 ```
 docker build -t bushido-nginx .
