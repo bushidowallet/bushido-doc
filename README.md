@@ -10,8 +10,7 @@ docker build -t bushido-rabbitmq .
 ```
 Run the RabbitMQ container off this image.
 ```
-docker run -t -i -e RABBITMQ_DEFAULT_USER=bushido -e RABBITMQ_DEFAULT_PASS=bushido
--p 15674:15674 -p 5672:5672 bushido-rabbitmq
+docker run -t -i -e RABBITMQ_DEFAULT_USER=bushido -e RABBITMQ_DEFAULT_PASS=bushido -p 15674:15674 -p 5672:5672 bushido-rabbitmq
 ```
 Note we open up 2 ports: **15674** for rabbitmq_web_stomp plugin and **5672** for AMQP.
 
@@ -25,8 +24,7 @@ docker run --name bushido-mongo -d mongo
 ```
 In a separate console window, launch a MongoDB client to test if its working fine and find out the IP address of MongoDB container.
 ```
-docker run -it --link bushido-mongo:mongo --rm mongo 
-sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
+docker run -it --link bushido-mongo:mongo --rm mongo sh -c "exec mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"
 ```
 Make a note of the IP address assigned, typically its **172.17.0.x** 
 
@@ -49,9 +47,7 @@ mvn install
 ```
 Once its built, run it with Docker:
 ```
-docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS="-Xms512M" -p 8080:8080 
--v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/
-target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
+docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS="-Xms512M" -p 8080:8080 -v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
 ```
 # Bushido Web Application 
 
