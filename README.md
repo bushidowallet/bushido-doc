@@ -63,14 +63,12 @@ Clone [bushido-web-app](https://github.com/bushidowallet/bushido-web-app) to bus
 
 Nginx is a HTTP and Reverse Proxy server used on Bushido to serve Bushido Web Application, and reverse proxy API calls and socket connections upstream to Tomcat and RabbitMQ. Nginx acts as an SSL termination point, so in order to configure it locally, you need to generate a self-signed wildcard SSL certificate first. If you are a Linux user, install [OpenSSL](https://www.openssl.org/) with apt-get. If you prefer Windows, get [Win32 OpenSSL v1.0.2e](http://slproweb.com/download/Win32OpenSSL-1_0_2e.exe). 
 
-Generate Root CA certificate
-Common name: Bushido SSL
+Generate Root CA certificate. Use common name: Bushido SSL
 ```
 openssl genrsa -out ca.key 4096
 req -new -x509 -days 1826 -key ca.key -out ca.crt
 ```
-Generate Bushido Wildcard unsigned certificate
-Common name: *.bushidowallet.com
+Generate Bushido Wildcard unsigned certificate. Use common name: *.bushidowallet.com
 ```
 genrsa -out bushido.key 4096
 req -new -key bushido.key -out bushido.csr
