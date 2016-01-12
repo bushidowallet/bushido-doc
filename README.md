@@ -55,7 +55,7 @@ mvn install
 ```
 Once its built, run the docker container off the Tomcat 8 - JRE 7 image defined in this repo [tomcat](https://github.com/bushidowallet/tomcat/tree/bushido/8-jre7)
 ```
-docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS="-Xms512M" -p 8080:8080 -v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi tomcat:8.0
+docker run -it --rm -e JAVA_OPTS="-Dspring.profiles.active=dev" -e CATALINA_OPTS="-Xms512M" -p 8080:8080 -v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-wallet-service/target/bushido-wallet-service-1.0.3:/usr/local/tomcat/webapps/walletapi -v //c/Users/JohnDoe/Documents/bushido/bushido-java-service/bushido-address-watcher/target/bushido-address-watcher-1.0.3:/usr/local/tomcat/webapps/blockchain tomcat:8.0
 ```
 # Bushido Web Application 
 
