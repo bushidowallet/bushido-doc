@@ -1,4 +1,12 @@
-# Setting up Bushido development environment with [Docker](http://www.docker.com)
+# Setting up Bushido development environment
+
+You will need the following software to be installed:
+
+- [Docker](http://www.docker.com)
+- [Git](https://git-scm.com/)
+- [Maven](https://maven.apache.org/)
+- [NodeJS](https://nodejs.org/en/)
+- [Android Studio](http://developer.android.com/sdk/index.html)
 
 # RabbitMQ
 
@@ -72,12 +80,12 @@ Generate Root CA certificate. Use common name: Bushido SSL
 openssl genrsa -out ca.key 4096
 req -new -x509 -days 1826 -key ca.key -out ca.crt
 ```
-Generate Bushido Wildcard unsigned certificate. Use common name: *.bushidowallet.com
+Generate Bushido wildcard unsigned certificate. Use common name: *.bushidowallet.com
 ```
 genrsa -out star_bushidowallet_com.key 4096
 req -new -key star_bushidowallet_com.key -out bushido.csr
 ```
-Sign wildcard certificate with Root CA
+Sign wildcard certificate with Root CA's key
 ```
 x509 -req -days 730 -in bushido.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out bushido.crt
 ```
@@ -88,3 +96,10 @@ Build the image and run the container:
 docker build -t bushido-nginx .
 docker run --name bushido-nginx -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/bushido.conf:/etc/nginx/conf.d/bushido.conf:ro -v //c/Users/JohnDoe/Documents/bushido/bushido-web-app/dist:/usr/share/nginx/html:ro -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/cert/bundle.crt:/etc/nginx/bundle.crt:ro -v //c/Users/JohnDoe/Documents/bushido/docker-nginx/conf/cert/star_bushidowallet_com.key:/etc/nginx/star_bushidowallet_com.key:ro -d -p 80:80 -p 443:443 bushido-nginx
 ```
+Configure your hosts file to contain the following entries
+```
+192.168.99.100 app.bushidowallet.com
+192.168.99.100 websockets.bushidowallet.com
+192.168.99.100 api.bushidowallet.com
+```
+IP address is your Docker Machine's IP address.
