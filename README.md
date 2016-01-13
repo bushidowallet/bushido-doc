@@ -10,9 +10,9 @@ You will need the following software to be installed:
 
 You will need to register on the following websites:
 
-- [Sendgrid](https://sendgrid.com/). Bushido uses this service to deliver emails. (Minimum requirement)
-- [Chain](http://www.chain.com). Bushido uses this service to get transaction notifications (Optional requirement - Bushido can also get transaction notifications on its own)
-- [Twilio](http://www.twilio.com). Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
+- [Sendgrid](https://sendgrid.com/) - Bushido uses this service to deliver emails. (Minimum requirement)
+- [Chain](http://www.chain.com) - Bushido uses this service to get transaction notifications (Optional requirement - Bushido can also get transaction notifications on its own)
+- [Twilio](http://www.twilio.com) - Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
 
 # RabbitMQ
 
