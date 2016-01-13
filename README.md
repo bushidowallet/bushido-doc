@@ -8,6 +8,12 @@ You will need the following software to be installed:
 - [NodeJS](https://nodejs.org/en/)
 - [Android Studio](http://developer.android.com/sdk/index.html)
 
+You will need to register on the following websites:
+
+- [Sendgrid](https://sendgrid.com/). Bushido uses this service to deliver emails. (Minimum requirement)
+- [Chain](http://www.chain.com). Bushido uses this service to get transaction notifications (Optional requirement - Bushido can also get transaction notifications on its own)
+- [Twilio](http://www.twilio.com). Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
+
 # RabbitMQ
 
 RabbitMQ is a message broker used on Bushido to wire up server, web and mobile components.
@@ -48,6 +54,8 @@ Once you have the code, locate *application.dev.properties* file in */bushido-ja
 ```
 app.rabbit.host=192.168.99.100 //your Docker Machine's IP
 app.mongo.host=172.17.0.2 //MongoDB container's IP
+app.sendgrid.username=johndoe
+app.sendgrid.password=somesecurepassword
 ```
 You are ready to build it with Maven.
 ```
