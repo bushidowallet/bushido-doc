@@ -63,7 +63,7 @@ Optionally change these settings:
 app.authy.enabled=false //change to true if you want to enable 2FA
 app.authy.apikey= //API Key on Twilio Authy, provide if app.authy.enabled == true
 app.chainuser= //HTTP Basic Auth user for Chain.com RESTful notifications
-app.chainpass= //HTTP Basic Auth password for Chain.com Restful notifications
+app.chainpass= //HTTP Basic Auth password for Chain.com RESTful notifications
 app.onchainuser= //your user Id on chain.com (for notifications subscriptions)
 app.onchainpass= //your user password on chain.com (for notifications subscriptions)
 ```
