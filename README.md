@@ -13,7 +13,7 @@ You will need to register on the following websites:
 
 - [Sendgrid](https://sendgrid.com/) - Bushido uses this service to deliver emails. (Minimum requirement)
 - [Chain](http://www.chain.com) - Bushido uses this service to get transaction notifications (Optional requirement - Bushido can also get transaction notifications on its own)
-- [Twilio Authy](http://www.twilio.com) - Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
+- [Twilio Authy](https://www.twilio.com/authy) - Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
 
 # RabbitMQ
 
@@ -125,7 +125,9 @@ IP address is your Docker Machine's IP address.
 
 # Bushido Android Application
 
-TBA
+Bushido Android Application is a mobile wallet app. It talks to back-end via RabbitMQ Server and Java RESTful API. It can receive and spend Bitcoin.
+
+Clone [bushido-android-app](https://github.com/bushidowallet/bushido-android-app), install Android Studio and launch the application using emulator or physical android device connected via USB cable.
 
 # Utimaco CryptoServer Emulator
 
