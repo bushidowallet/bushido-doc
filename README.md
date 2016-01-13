@@ -12,7 +12,7 @@ You will need to register on the following websites:
 
 - [Sendgrid](https://sendgrid.com/) - Bushido uses this service to deliver emails. (Minimum requirement)
 - [Chain](http://www.chain.com) - Bushido uses this service to get transaction notifications (Optional requirement - Bushido can also get transaction notifications on its own)
-- [Twilio](http://www.twilio.com) - Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
+- [Twilio Authy](http://www.twilio.com) - Bushido uses this service to provide 2 Factor Authentication feature to users. (Optional requirement - Bushido can run without 2FA)
 
 # RabbitMQ
 
@@ -50,12 +50,21 @@ Clone [bushido-java-service](https://github.com/bushidowallet/bushido-java-servi
 ```
 git clone https://github.com/bushidowallet/bushido-java-service.git
 ```
-Once you have the code, locate *application.dev.properties* file in */bushido-java-service/bushido-wallet-service/src/main/resources* and change the following entries:
+Once you have the code, locate *application.dev.properties* file in */bushido-java-service/bushido-wallet-service/src/main/resources* and change/fill the following entries:
 ```
 app.rabbit.host=192.168.99.100 //your Docker Machine's IP
 app.mongo.host=172.17.0.2 //MongoDB container's IP
-app.sendgrid.username=johndoe
-app.sendgrid.password=somesecurepassword
+app.sendgrid.username=johndoe //your user name on Sendgrid
+app.sendgrid.password=somesecurepassword //your password on Sendgrid
+```
+Optionally change these settings:
+```
+app.authy.enabled=false //change to true if you want to enable 2FA
+app.authy.apikey= //API Key on Twilio Authy, provide if app.authy.enabled == true
+app.chainuser= //HTTP Basic Auth user for Chain.com RESTful notifications
+app.chainpass= //HTTP Basic Auth password for Chain.com Restful notifications
+app.onchainuser= //your user Id on chain.com (for notifications subscriptions)
+app.onchainpass= //your user password on chain.com (for notifications subscriptions)
 ```
 You are ready to build it with Maven.
 ```
