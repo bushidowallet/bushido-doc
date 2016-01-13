@@ -44,7 +44,7 @@ Make a note of the IP address assigned, typically its **172.17.0.x**
 
 # Bushido Java Service
 
-Bushido Java Service provides J2EE applications required to run Bushido - including the APIs.
+Bushido Java Service provides server components for Bushido.
 
 Clone [bushido-java-service](https://github.com/bushidowallet/bushido-java-service). If you are on Windows, clone to a folder in your user's Documents (eg. C:\Users\JohnDoe\Documents\bushido). It is required by Docker on this OS.
 ```
@@ -54,8 +54,8 @@ Once you have the code, locate *application.dev.properties* file in */bushido-ja
 ```
 app.rabbit.host=192.168.99.100 //your Docker Machine's IP
 app.mongo.host=172.17.0.2 //MongoDB container's IP
-app.sendgrid.username=johndoe //your user name on Sendgrid
-app.sendgrid.password=somesecurepassword //your password on Sendgrid
+app.sendgrid.username=johndoe //your user name on Sendgrid.com
+app.sendgrid.password=somesecurepassword //your password on Sendgrid.com
 ```
 Optionally change these settings:
 ```
@@ -106,7 +106,8 @@ Sign wildcard certificate with Root CA's key
 ```
 x509 -req -days 730 -in bushido.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out bushido.crt
 ```
-Copy bushido.crt content to bundle.crt and save it.
+Copy bushido.crt content to bundle.crt and save it. This is your self-signed wildcard certificate.
+File ca.crt is your Root CA (issuer) certificate. Both .crt files need to be installed in Chrome in order for the application to work correctly.
 
 Build the image and run the container:
 ```
