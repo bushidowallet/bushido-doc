@@ -7,6 +7,7 @@ You will need the following software to be installed:
 - [Maven](https://maven.apache.org/)
 - [NodeJS](https://nodejs.org/en/)
 - [Android Studio](http://developer.android.com/sdk/index.html)
+- [Google Chrome](https://www.google.com/chrome) - recommended browser
 
 You will need to register on the following websites:
 
@@ -107,7 +108,7 @@ Sign wildcard certificate with Root CA's key
 x509 -req -days 730 -in bushido.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out bushido.crt
 ```
 Copy bushido.crt content to bundle.crt and save it. This is your self-signed wildcard certificate.
-File ca.crt is your Root CA (issuer) certificate. Both .crt files need to be installed in Chrome in order for the application to work correctly.
+File ca.crt is your Root CA (issuer) certificate. Both .crt files need to be installed in Google Chrome (Settings - Advanced - HTTPS/SSL) in order for the application to work correctly.
 
 Build the image and run the container:
 ```
