@@ -131,4 +131,6 @@ Clone [bushido-android-app](https://github.com/bushidowallet/bushido-android-app
 
 # Utimaco CryptoServer Emulator
 
-TBA
+Utimaco CryptoServer Emulator can emulate a physical Hardware Security Module device [Utimaco CryptoServer](https://hsm.utimaco.com/cryptoserver/securityserver-cse/). Bushido will be configurable to integrate with Utimaco device to store sensitive data - including Bitcoin keys in a secure way. 
+
+Currently can not publicize the emulator software due to licensing terms.
