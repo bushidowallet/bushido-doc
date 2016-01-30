@@ -1,5 +1,7 @@
 # Setting up Bushido development environment
 
+[![Join the chat at https://gitter.im/bushidowallet/bushido-doc](https://badges.gitter.im/bushidowallet/bushido-doc.svg)](https://gitter.im/bushidowallet/bushido-doc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 You will need the following software to be installed:
 
 - [Docker](http://www.docker.com)
